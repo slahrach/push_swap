@@ -20,17 +20,21 @@ AR = ar -rcs
 all: ${NAME}
 
 ${NAME} : ${OBJS}
-	${AR} ${NAME} ${OBJS}
+	@${AR} ${NAME} ${OBJS}
+	@echo "objects libft are made"
+	@echo "libft.a is made"
 
 clean :
-	rm -f ${OBJS} ${OJBS_BONUS}
+	@rm -f ${OBJS} ${OJBS_BONUS}
+	@echo "objects libft are cleaned"
 
 fclean : clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
+	@echo "libft.a is cleaned"
 
 re : fclean all bonus
 
 %.o : %.c
-	${CC} ${CFLAGS} -c $<
+	@${CC} ${CFLAGS} -c $<
 
 .PHONY: clean all fclean re bonus

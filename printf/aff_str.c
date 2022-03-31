@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   aff_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 14:05:21 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/23 04:00:41 by slahrach         ###   ########.fr       */
+/*   Created: 2021/12/05 01:03:25 by slahrach          #+#    #+#             */
+/*   Updated: 2021/12/09 00:13:34 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlcpy( char *dst, const char *src, size_t sizedst)
+int	aff_str(char *str)
 {
-	size_t	l;
-	size_t	i;
+	int	i;
 
-	l = ft_strlen(src);
+	if (!str)
+		str = "(null)";
 	i = 0;
-	if (sizedst == 0)
-		return (l);
-	while (src[i] && i < (sizedst - 1))
+	while (str[i] != '\0')
 	{
-		dst[i] = src[i];
+		aff_char(str[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (l);
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 21:29:10 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/21 04:04:50 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:13:21 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 typedef struct s_list
 {
-	int				*so_arr;
-	int				*arr;
 	int				content;
 	struct s_list	*next;
 }	t_list;

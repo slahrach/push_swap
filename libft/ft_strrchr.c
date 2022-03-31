@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 10:05:51 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/22 00:41:20 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:01:17 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	const char s[] = "sara\0api";
-	printf("%s\n",strrchr(s, 'p'));
-	printf("%s",ft_strrchr(s, 'p'));
-}*/

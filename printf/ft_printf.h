@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 14:05:21 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/23 04:00:41 by slahrach         ###   ########.fr       */
+/*   Created: 2021/12/05 00:01:57 by slahrach          #+#    #+#             */
+/*   Updated: 2021/12/09 00:23:47 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
 
-size_t	ft_strlcpy( char *dst, const char *src, size_t sizedst)
-{
-	size_t	l;
-	size_t	i;
+# define FT_PRINTF_H
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
 
-	l = ft_strlen(src);
-	i = 0;
-	if (sizedst == 0)
-		return (l);
-	while (src[i] && i < (sizedst - 1))
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (l);
-}
+int	aff_char(int c);
+int	aff_str(char *str);
+int	aff_base10(int n);
+int	aff_unsigned(unsigned int nbr);
+int	aff_base16(unsigned int n, char la);
+int	aff_pointer(void *ptr);
+int	ft_printf(const char *src, ...);
+
+#endif

@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   aff_unsigned.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 14:05:21 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/23 04:00:41 by slahrach         ###   ########.fr       */
+/*   Created: 2021/12/07 20:41:54 by slahrach          #+#    #+#             */
+/*   Updated: 2021/12/09 00:45:03 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_strlcpy( char *dst, const char *src, size_t sizedst)
+static int	count(unsigned int n)
 {
-	size_t	l;
-	size_t	i;
+	int	r;
 
-	l = ft_strlen(src);
-	i = 0;
-	if (sizedst == 0)
-		return (l);
-	while (src[i] && i < (sizedst - 1))
+	r = 1;
+	while (n > 9)
 	{
-		dst[i] = src[i];
-		i++;
+		r++;
+		n /= 10;
 	}
-	dst[i] = '\0';
-	return (l);
+	return (r);
+}
+
+int	aff_unsigned(unsigned int nbr)
+{
+	int		a;
+
+	a = count(nbr);
+	if (nbr < 10)
+		aff_char(nbr + '0');
+	else
+	{
+		aff_unsigned(nbr / 10);
+		aff_char((nbr % 10) + '0');
+	}
+	return (a);
 }

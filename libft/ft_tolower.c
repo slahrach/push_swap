@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 18:28:51 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/16 02:42:05 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:01:31 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	printf("%c",ft_tolower(67));
-}
-*/

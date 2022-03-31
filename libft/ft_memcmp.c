@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:26:20 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/29 02:48:58 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 03:58:22 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char s1[] = "";
-	char s2[] = "atoms\0abc";
-	printf("%d\n%d\n%d",strncmp(s1,s2,9),memcmp(s1,s2,9),ft_memcmp(s1,s2,9));
-}*/

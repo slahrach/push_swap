@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 23:06:20 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/21 03:16:35 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/30 14:03:17 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,12 @@ static char	**allocate(const char **argv)
 		while (argv[t.i][t.j])
 		{
 			if (argv[t.i][t.j] == ' ')
-			t.l++;
+			(t.l)++;
 			t.j++;
 		}
 	}
 	t.j = 0;
-	ret = (char **) malloc ((t.l + 1) * sizeof(char *));
-	t.i = 0;
-	while (t.i < t.l)
-	{
-		ret[t.i] = (char *) malloc ((12) * sizeof(char));
-		t.i++;
-	}
+	ret = malloc (((t.l) + 1) * sizeof(char *));
 	return (ret);
 }
 
@@ -78,24 +72,15 @@ static char	**fill(const char	**argv, t_tools *t, char **ret)
 {
 	char	**spl;
 
-	if (ft_strlen(argv[t->i]) > 1)
+	t->j = 0;
+	spl = ft_split(argv[t->i], ' ');
+	while (spl[t->j])
 	{
-		t->j = -1;
-		spl = ft_split(argv[t->i], ' ');
-		while (spl[++t->j])
-		{
-			t->k = 0;
-			t->b = 0;
-			while (spl[t->j][t->k])
-				ret[t->a][t->b++] = spl[t->j][t->k++];
-			ret[t->a++][t->b] = '\0';
-		}
+		ret[t->a] = ft_strdup(spl[t->j]);
+		t->j++;
+		t->a++;
 	}
-	else
-	{
-		ret[t->a][0] = argv[t->i][0];
-		ret[t->a++][1] = '\0';
-	}
+	to_free(spl);
 	return (ret);
 }
 
@@ -114,18 +99,3 @@ char	**to_split(const char **argv)
 	ret[t.a] = NULL;
 	return (ret);
 }
-/*
-int	main(int argc, const char **argv)
-{
-	char	**str;
-	int		i;
-
-	i = 0;
-	str = to_split(argv);
-	while (str[i])
-	{
-		printf("%s\n", str[i]);
-		i++;
-	}
-	printf("%d\n", ft_atoi("-2147483649"));
-}*/

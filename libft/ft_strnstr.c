@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:46:16 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/21 02:17:25 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:01:05 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,3 @@ char	*ft_strnstr(const char *origin, const char *find, size_t len)
 	}
 	return (0);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char s1[] = "yy";
-	char s2[] = "";
-	//size_t max = strlen(s2);
-	printf("%s\n",strnstr(s1, s2, 0));
-	printf("%s",ft_strnstr(s1, s2, 0));
-}*/

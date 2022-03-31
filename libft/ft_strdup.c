@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 13:49:29 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/18 00:38:02 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:00:14 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,3 @@ char	*ft_strdup(const char *s1)
 	ft_strlcpy (ptr, s1, l + 1);
 	return (ptr);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	printf("%s\n",ft_strdup("memories"));
-	printf("%s",strdup("memories"));
-}*/

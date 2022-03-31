@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 15:54:55 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/26 22:56:20 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:00:35 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[dst_len + i] = '\0';
 	return (l);
 }
-/*
-int main()
-{
-	char src[] = "hdhd";
-	char *dst = NULL;
-	char src2[] = "HDHD";
-	char *dst2 = NULL;
-	printf("%lu\n",strlcat(dst, src, 2));
-	printf("%lu\n",ft_strlcat(dst2, src2, 2));
-	
-}*/

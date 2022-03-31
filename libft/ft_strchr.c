@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 18:36:22 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/27 23:46:07 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:00:09 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	printf("%s\n",ft_strchr("sara", '\0'));
-	printf("%s",strchr("sara", '\0'));
-}*/

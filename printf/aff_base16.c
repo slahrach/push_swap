@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   aff_base16.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 10:54:47 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/23 04:00:59 by slahrach         ###   ########.fr       */
+/*   Created: 2021/12/08 02:53:26 by slahrach          #+#    #+#             */
+/*   Updated: 2021/12/09 00:33:54 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+static int	count(unsigned int n)
 {
-	while ((*s1 != '\0' || *s2 != '\0') && n > 0)
+	int	r;
+
+	r = 1;
+	while (n > 15)
 	{
-		if (*s1 != *s2)
-			return (*(unsigned char *)s1 - *(unsigned char *)s2);
-		s1++;
-		s2++;
-		n--;
+		r++;
+		n /= 16;
 	}
-	return (0);
+	return (r);
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	aff_base16(unsigned int nbr, char la)
 {
-	while (*s1 != '\0' || *s2 != '\0')
+	int		r;
+	char	*str;
+
+	r = count(nbr);
+	if (la == 'x')
+		str = "0123456789abcdef";
+	else if (la == 'X')
+		str = "0123456789ABCDEF";
+	if (nbr < 16)
+		aff_char(str[nbr]);
+	else
 	{
-		if (*s1 != *s2)
-			return (*(unsigned char *)s1 - *(unsigned char *)s2);
-		s1++;
-		s2++;
+		aff_base16((nbr / 16), la);
+		aff_char(str[nbr % 16]);
 	}
-	return (0);
+	return (r);
 }

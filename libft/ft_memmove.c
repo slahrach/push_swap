@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 21:22:07 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/16 02:16:58 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 03:58:34 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-#include <strings.h>
-int main ()
-{
-	char sr[10] = "abcde";
-	char ds[10] = "";
-	char sour[10] = "abcde";
-	char des[10] = "";
-	printf("%s\n",memmove(ds, sr, 3));
-	printf("%s", ft_memmove(des, sour, 3));
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:48:53 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/21 03:52:23 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:00:27 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[i] = '\0';
 	return (str);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char	s[20] = "sara";
-	char	s2[20] = "lahrach";
-	printf("%s",ft_strjoin(s, s2));
-}*/

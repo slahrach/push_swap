@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 06:16:17 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/22 02:23:56 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:42:46 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,91 +28,101 @@ int	max_index(int *arr, int l)
 	return (max);
 }
 
-void	action(int l, int index, t_list **stack1, t_list **stack2, int a, int b)
+void	action(t_data p, t_list **stack1, t_list **stack2)
 {
 	int	j;
 
-	if (index <= l / 2)
+	if (p.max <= (p.size) / 2)
 	{
-		while (index > 0)
+		while (p.max > 0)
 		{
-			rotate(stack1, a);
-			index--;
+			rotate(stack1, 'b');
+			(p.max)--;
 		}
-		push(stack1, stack2, b);
+		push(stack1, stack2, 'a');
 	}
 	else
 	{
-		j = l - index;
+		j = p.size - p.max;
 		while (j > 0)
 		{
-			*stack1 = reverse_rotate(*stack1, a);
+			*stack1 = reverse_rotate(*stack1, 'b');
 			j--;
 		}
-		push(stack1, stack2, b);
+		push(stack1, stack2, 'a');
 	}
 }
 
-int	a_to_b_process(t_data *push_swap, t_list **a, t_list **b, int y)
+int	a_to_b_process(t_data *p, t_list **a, t_list **b, int *arr_a)
 {
-	fill_arr(a);
-	if (push_swap->s_arr[y] == (*a)->arr[0])
+	arr_a = fill_arr(a, arr_a);
+	if (p->s_arr[p->y] == arr_a[0])
 	{
 		push(a, b, 'b');
-		if (push_swap->s_arr[y] < push_swap->pivot && ft_lstsize(*b))
-			rotate(b, 'b');
+		if (p->s_arr[p->y] < p->pivot && ft_lstsize(*b))
+		{
+			if (arr_a[1] > p->s_arr[p->y_t] || arr_a[1] < p->s_arr[p->z])
+			{
+				rotate(a, 'c');
+				rotate(b, 'c');
+				ft_printf("rr\n");
+			}
+			else
+				rotate(b, 'b');
+		}
 		return (1);
 	}
 	return (0);
 }
 
-static	void	a_to_b(t_data *push_swap, int l, t_list **a, t_list **b)
+static	void	a_to_b(t_data *push_swap, t_list **a, t_list **b, t_data data)
 {
 	int	i;
-	int	y;
-	int	z;
 
 	i = 0;
 	while (i < push_swap->size)
 	{
-		y = (l / 2) - push_swap->range;
-		if (y < 0)
-			y = 0;
-		z = (l / 2) + push_swap->range;
-		if (z > l)
-			z = l;
-		while (y < z)
+		push_swap->y = (data.l / 2) - push_swap->range;
+		if (push_swap->y < 0)
+			push_swap->y = 0;
+		push_swap->y_t = push_swap->y;
+		push_swap->z = (data.l / 2) + push_swap->range;
+		if (push_swap->z > data.l)
+			push_swap->z = data.l;
+		while (push_swap->y < push_swap->z)
 		{
-			if (a_to_b_process(push_swap, a, b, y) == 1)
+			if (a_to_b_process(push_swap, a, b, data.arr_a) == 1)
 				break ;
-			y++;
+			push_swap->y++;
 		}
-		if (y == z)
+		if (push_swap->y == push_swap->z)
 			rotate(a, 'a');
 		i++;
 	}
 }
 
-void	sort(t_list **a, t_list **b, int l, int chunk)
+void	sort(t_list **a, t_list **b, int chunk, t_data data)
 {
-	int		max;
 	t_data	push_swap;
 
-	push_swap.range = 1;
-	push_swap.s_arr = sorted_arr(*a);
-	push_swap.pivot = push_swap.s_arr[l / 2];
-	push_swap.size = fill_arr(a);
-	while ((push_swap.size))
-	{
-		push_swap.range += chunk;
-		a_to_b(&push_swap, l, a, b);
-		push_swap.size = fill_arr(a);
-	}
-	push_swap.size = fill_arr(b);
+	push_swap.range = 0;
+	push_swap.s_arr = sorted_arr(*a, data.arr_a);
+	push_swap.pivot = push_swap.s_arr[data.l / 2];
+	push_swap.size = data.l;
 	while (push_swap.size)
 	{
-		max = max_index((*b)->arr, push_swap.size);
-		action(push_swap.size, max, b, a, 'b', 'a');
-		push_swap.size = fill_arr(b);
+		data.arr_a = fill_arr(a, data.arr_a);
+		push_swap.range += chunk;
+		a_to_b(&push_swap, a, b, data);
+		push_swap.size = ft_lstsize(*a);
+	}
+	free(push_swap.s_arr);
+	push_swap.size = data.l;
+	while (push_swap.size)
+	{
+		data.arr_b = fill_arr(b, data.arr_b);
+		push_swap.max = max_index(data.arr_b, push_swap.size);
+		action(push_swap, b, a);
+		push_swap.size = ft_lstsize(*b);
 	}
 }

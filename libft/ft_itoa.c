@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 20:12:05 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/20 22:37:52 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 03:57:41 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,3 @@ char	*ft_itoa(int nbr)
 	*str = '\0';
 	return (ptr);
 }
-/*
-#include <stdio.h>
-int main ()
-{
-	printf("%s\n",ft_itoa(-1234));
-}*/

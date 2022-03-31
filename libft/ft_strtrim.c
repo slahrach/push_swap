@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:31:58 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/23 19:51:58 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 04:01:22 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr = ft_substr(s1, i, ft_strlen(s1) - i - end);
 	return (ptr);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	printf("%s",ft_strtrim("abcdba", "acb"));
-}*/

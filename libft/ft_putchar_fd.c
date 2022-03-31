@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:31:53 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/19 17:51:18 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 03:58:50 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,3 @@ void	ft_putchar_fd(char c, int fd)
 	if (fd > 0)
 		write (fd, &c, 1);
 }
-/*
-int main()
-{
-	ft_putchar_fd ('a', 1);
-}*/

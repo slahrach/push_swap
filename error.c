@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 23:23:49 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/21 04:19:47 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/30 12:46:59 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,17 @@ void	error(int a)
 	else if (a == 1)
 		write(2, "allocation failed :(", 21);
 	exit(0);
+}
+
+void	to_free(char **splited)
+{
+	int	i;
+
+	i = 0;
+	while (splited[i])
+	{
+		free(splited[i]);
+		i++;
+	}
+	free(splited);
 }

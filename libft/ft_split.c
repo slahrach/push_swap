@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 20:54:05 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/21 23:02:32 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 03:59:10 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,19 +99,3 @@ char	**ft_split(char const *s, char c)
 	fill (ptr, r, s, c);
 	return (ptr);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	int	i;
-	i = 0;
-	char **ptr;
-	char s[] = "54\t5\t54541";
-	ptr = ft_split(s, '\t');
-	while(ptr[i] != NULL)
-	{
-		printf("%s\n",ptr[i]);
-		i++;
-	}
-}
-*/

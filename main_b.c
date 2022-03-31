@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 03:32:23 by slahrach          #+#    #+#             */
-/*   Updated: 2022/03/22 01:16:13 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:51:48 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,19 @@ static	void	find_operation(t_list **a, t_list **b, char *op)
 		double_op (a, b, op);
 }
 
+void	result(t_list *a, t_list *b)
+{
+	if (is_sorted(a) && ft_lstsize(b) == 0)
+		write (1, "OK\n", 3);
+	else
+		write (1, "KO\n", 3);
+}
+
 int	main(int argc, const char **argv)
 {
 	char	*op;
 	t_list	*a;
+	int		*arr_a;
 	t_list	*b;
 	char	**splited;
 
@@ -68,7 +77,9 @@ int	main(int argc, const char **argv)
 		exit(0);
 	splited = to_split(argv);
 	fill_args(&a, splited);
-	check_duplicate(a);
+	to_free(splited);
+	arr_a = malloc (ft_lstsize(a) * sizeof (int));
+	check_duplicate(a, arr_a);
 	op = get_next_line(0);
 	while (op)
 	{
@@ -76,8 +87,5 @@ int	main(int argc, const char **argv)
 		free(op);
 		op = get_next_line(0);
 	}
-	if (is_sorted(a) && ft_lstsize(b) == 0)
-		write (1, "OK\n", 3);
-	else
-		write (1, "KO\n", 3);
+	result(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: slahrach <slahrach@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 13:42:24 by slahrach          #+#    #+#             */
-/*   Updated: 2021/11/20 22:23:31 by slahrach         ###   ########.fr       */
+/*   Updated: 2022/03/23 03:59:02 by slahrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,3 @@ void	ft_putstr_fd(char *s, int fd)
 		s++;
 	}
 }
-/*
-int main()
-{
-	ft_putstr_fd("sara lahrach", 1);
-}
-*/
